@@ -635,7 +635,7 @@ Details for SSL key of D-Link DIR-655:
 
 With knowlege of private key we can decrypt capture HTTPS traffic designated for for router itself (e.g. web management pages, passwords). We can use for example Wireshark (<https://unit42.paloaltonetworks.com/wireshark-tutorial-decrypting-https-traffic/>):
 
-Picture below shows decrypted HTTPS traffic for `set_device.asp` page mentioned earlier.
+Picture below shows decrypted HTTPS traffic for `set_device.asp` page of web management.
 
 ![Wireshark wish decrypted traffic](images/wireshark_tls.png)
 
