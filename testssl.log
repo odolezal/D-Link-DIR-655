@@ -1,0 +1,224 @@
+
+###########################################################
+    testssl.sh       3.1dev from https://testssl.sh/dev/
+    (13298ff 2022-06-01 09:47:12)
+
+      This program is free software. Distribution and
+             modification under GPLv2 permitted.
+      USAGE w/o ANY WARRANTY. USE IT AT YOUR OWN RISK!
+
+       Please file bugs @ https://testssl.sh/bugs/
+
+###########################################################
+
+ Using "OpenSSL 1.0.2-chacha (1.0.2k-dev)" [~183 ciphers]
+ on kali:./bin/openssl.Linux.x86_64
+ (built: "Jan 18 17:12:17 2019", platform: "linux-x86_64")
+
+
+ Start 2022-06-26 11:55:21        -->> 10.0.0.5:443 (10.0.0.5) <<--
+
+ rDNS (10.0.0.5):        --
+ Service detected:       HTTP
+
+
+ Testing protocols via sockets except NPN+ALPN 
+
+ SSLv2      offered (NOT ok), also VULNERABLE to DROWN attack -- 2 ciphers
+ SSLv3      offered (NOT ok)
+ TLS 1      offered (deprecated)
+ TLS 1.1    not offered
+ TLS 1.2    not offered and downgraded to a weaker protocol
+ TLS 1.3    not offered and downgraded to a weaker protocol
+ NPN/SPDY   not offered
+ ALPN/HTTP2 not offered
+
+ Testing cipher categories 
+
+ NULL ciphers (no encryption)                      not offered (OK)
+ Anonymous NULL Ciphers (no authentication)        not offered (OK)
+ Export ciphers (w/o ADH+NULL)                     not offered (OK)
+ LOW: 64 Bit + DES, RC[2,4], MD5 (w/o export)      offered (NOT ok)
+ Triple DES Ciphers / IDEA                         offered
+ Obsoleted CBC ciphers (AES, ARIA etc.)            offered
+ Strong encryption (AEAD ciphers) with no FS       not offered
+ Forward Secrecy strong encryption (AEAD ciphers)  not offered
+
+
+ Testing server's cipher preferences 
+
+Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Cipher Suite Name (IANA/RFC)
+-----------------------------------------------------------------------------------------------------------------------------
+SSLv2 (listed by strength)
+ x0700c0 DES-CBC3-MD5                      RSA        3DES        168      SSL_CK_DES_192_EDE3_CBC_WITH_MD5                   
+ x060040 DES-CBC-MD5                       RSA        DES         56       SSL_CK_DES_64_CBC_WITH_MD5                         
+SSLv3 (no server order, thus listed by strength)
+ x35     AES256-SHA                        RSA        AES         256      TLS_RSA_WITH_AES_256_CBC_SHA                       
+ x2f     AES128-SHA                        RSA        AES         128      TLS_RSA_WITH_AES_128_CBC_SHA                       
+ x0a     DES-CBC3-SHA                      RSA        3DES        168      TLS_RSA_WITH_3DES_EDE_CBC_SHA                      
+ x09     DES-CBC-SHA                       RSA        DES         56       TLS_RSA_WITH_DES_CBC_SHA                           
+TLSv1 (no server order, thus listed by strength)
+ x35     AES256-SHA                        RSA        AES         256      TLS_RSA_WITH_AES_256_CBC_SHA                       
+ x2f     AES128-SHA                        RSA        AES         128      TLS_RSA_WITH_AES_128_CBC_SHA                       
+ x0a     DES-CBC3-SHA                      RSA        3DES        168      TLS_RSA_WITH_3DES_EDE_CBC_SHA                      
+ x09     DES-CBC-SHA                       RSA        DES         56       TLS_RSA_WITH_DES_CBC_SHA                           
+TLSv1.1
+ - 
+TLSv1.2
+ - 
+TLSv1.3
+ - 
+
+ Has server cipher order?     no (NOT ok)
+ Negotiated protocol          TLSv1
+ Negotiated cipher            AES256-SHA (limited sense as client will pick)
+
+ Testing robust forward secrecy (FS) -- omitting Null Authentication/Encryption, 3DES, RC4 
+
+ No ciphers supporting Forward Secrecy (FS) offered
+
+
+ Testing server defaults (Server Hello) 
+
+ TLS extensions (standard)    (none)
+ Session Ticket RFC 5077 hint no -- no lifetime advertised
+ SSL Session ID support       yes
+ Session Resumption           Tickets no, ID: yes
+ TLS clock skew               Random values, no fingerprinting possible 
+ Client Authentication        none
+ Signature Algorithm          MD5
+ Server key size              RSA 1024 bits (exponent is 65537)
+ Server key usage             --
+ Server extended key usage    --
+ Serial                       00   NOT ok: length should be >= 64 bits entropy (is: 1 bytes)
+ Fingerprints                 SHA1 CE253A40607150BA8616D456B6C8EABFC1D19490
+                              SHA256 B1CC105448E4E015CFD1A0CAF1C1436773C7996AD8E6C8B3993A8AFCAF25D4C0
+ Common Name (CN)             www.dlink.com 
+ subjectAltName (SAN)         missing (NOT ok) -- Browsers are complaining
+ Trust (hostname)             certificate does not match supplied URI
+ Chain of trust               NOT ok (self signed)
+ EV cert (experimental)       no 
+ Certificate Validity (UTC)   expired (2009-04-28 06:22 --> 2019-04-26 06:22)
+                              >= 10 years is way too long
+ ETS/"eTLS", visibility info  not present
+ Certificate Revocation List  --
+ OCSP URI                     --
+                              NOT ok -- neither CRL nor OCSP URI provided
+ OCSP stapling                not offered
+ OCSP must staple extension   --
+ DNS CAA RR (experimental)    not offered
+ Certificate Transparency     --
+ Certificates provided        1
+ Issuer                       www.dlink.com (D-Link Corporation from TW)
+ Intermediate Bad OCSP (exp.) Ok
+
+
+ Testing HTTP header response @ "/" 
+
+ HTTP Status Code             200 Ok
+ HTTP clock skew              -33307078 sec from localtime
+ Strict Transport Security    not offered
+ Public Key Pinning           --
+ Server banner                httpd
+ Application banner           --
+ Cookie(s)                    (none issued at "/")
+ Security headers             Cache-Control: no-cache
+                              Pragma: no-cache
+ Reverse Proxy banner         --
+
+
+ Testing vulnerabilities 
+
+ Heartbleed (CVE-2014-0160)                not vulnerable (OK), no heartbeat extension
+ CCS (CVE-2014-0224)                       VULNERABLE (NOT ok)
+ Ticketbleed (CVE-2016-9244), experiment.  not vulnerable (OK), no session ticket extension
+ ROBOT                                     not vulnerable (OK)
+ Secure Renegotiation (RFC 5746)           Not supported / VULNERABLE (NOT ok)
+ Secure Client-Initiated Renegotiation     VULNERABLE (NOT ok), DoS threat (6 attempts)
+ CRIME, TLS (CVE-2012-4929)                not vulnerable (OK)
+ BREACH (CVE-2013-3587)                    no gzip/deflate/compress/br HTTP compression (OK)  - only supplied "/" tested
+ POODLE, SSL (CVE-2014-3566)               VULNERABLE (NOT ok), uses SSLv3+CBC (check TLS_FALLBACK_SCSV mitigation below)
+ TLS_FALLBACK_SCSV (RFC 7507)              Downgrade attack prevention NOT supported and vulnerable to POODLE SSL
+ SWEET32 (CVE-2016-2183, CVE-2016-6329)    VULNERABLE, uses 64 bit block ciphers for SSLv2 and above
+ FREAK (CVE-2015-0204)                     not vulnerable (OK)
+ DROWN (CVE-2016-0800, CVE-2016-0703)      VULNERABLE (NOT ok), SSLv2 offered with 2 ciphers
+                                           Make sure you don't use this certificate elsewhere, see:
+                                           https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=B1CC105448E4E015CFD1A0CAF1C1436773C7996AD8E6C8B3993A8AFCAF25D4C0
+ LOGJAM (CVE-2015-4000), experimental      not vulnerable (OK): no DH EXPORT ciphers, no DH key detected with <= TLS 1.2
+ BEAST (CVE-2011-3389)                     SSL3: AES256-SHA AES128-SHA DES-CBC3-SHA DES-CBC-SHA 
+                                           TLS1: AES256-SHA AES128-SHA DES-CBC3-SHA DES-CBC-SHA 
+                                           VULNERABLE -- and no higher protocols as mitigation supported
+ LUCKY13 (CVE-2013-0169), experimental     potentially VULNERABLE, uses cipher block chaining (CBC) ciphers with TLS. Check patches
+ Winshock (CVE-2014-6321), experimental    not vulnerable (OK) - doesn't seem to be IIS 8.x
+ RC4 (CVE-2013-2566, CVE-2015-2808)        no RC4 ciphers detected (OK)
+
+
+ Running client simulations (HTTP) via sockets 
+
+ Browser                      Protocol  Cipher Suite Name (OpenSSL)       Forward Secrecy
+------------------------------------------------------------------------------------------------
+ Android 6.0                  TLSv1.0   AES256-SHA                        No FS
+ Android 7.0 (native)         TLSv1.0   AES128-SHA                        No FS
+ Android 8.1 (native)         TLSv1.0   AES128-SHA                        No FS
+ Android 9.0 (native)         TLSv1.0   AES128-SHA                        No FS
+ Android 10.0 (native)        TLSv1.0   AES128-SHA                        No FS
+ Android 11 (native)          TLSv1.0   AES128-SHA                        No FS
+ Android 12 (native)          TLSv1.0   AES128-SHA                        No FS
+ Chrome 79 (Win 10)           TLSv1.0   AES128-SHA                        No FS
+ Chrome 101 (Win 10)          No connection
+ Firefox 66 (Win 8.1/10)      TLSv1.0   AES128-SHA                        No FS
+ Firefox 100 (Win 10)         No connection
+ IE 6 XP                      SSLv3     DES-CBC3-SHA                      No FS
+ IE 8 Win 7                   TLSv1.0   AES128-SHA                        No FS
+ IE 8 XP                      TLSv1.0   DES-CBC3-SHA                      No FS
+ IE 11 Win 7                  TLSv1.0   AES256-SHA                        No FS
+ IE 11 Win 8.1                TLSv1.0   AES256-SHA                        No FS
+ IE 11 Win Phone 8.1          TLSv1.0   AES128-SHA                        No FS
+ IE 11 Win 10                 TLSv1.0   AES256-SHA                        No FS
+ Edge 15 Win 10               TLSv1.0   AES256-SHA                        No FS
+ Edge 101 Win 10 21H2         No connection
+ Safari 12.1 (iOS 12.2)       No connection
+ Safari 13.0 (macOS 10.14.6)  TLSv1.0   AES256-SHA                        No FS
+ Safari 15.4 (macOS 12.3.1)   TLSv1.0   AES256-SHA                        No FS
+ Java 7u25                    TLSv1.0   AES128-SHA                        No FS
+ Java 8u161                   TLSv1.0   AES256-SHA                        No FS
+ Java 11.0.2 (OpenJDK)        TLSv1.0   AES256-SHA                        No FS
+ Java 17.0.3 (OpenJDK)        No connection
+ go 1.17.8                    TLSv1.0   AES128-SHA                        No FS
+ LibreSSL 2.8.3 (Apple)       TLSv1.0   AES256-SHA                        No FS
+ OpenSSL 1.0.2e               TLSv1.0   AES256-SHA                        No FS
+ OpenSSL 1.1.0l (Debian)      TLSv1.0   AES256-SHA                        No FS
+ OpenSSL 1.1.1d (Debian)      No connection
+ OpenSSL 3.0.3 (git)          TLSv1.0   AES256-SHA                        No FS
+ Apple Mail (16.0)            TLSv1.0   AES256-SHA                        No FS
+ Thunderbird (91.9)           No connection
+
+
+ Rating (experimental) 
+
+ Rating specs (not complete)  SSL Labs's 'SSL Server Rating Guide' (version 2009q from 2020-01-30)
+ Specification documentation  https://github.com/ssllabs/research/wiki/SSL-Server-Rating-Guide
+ Protocol Support (weighted)  0 (0)
+ Key Exchange     (weighted)  0 (0)
+ Cipher Strength  (weighted)  0 (0)
+ Final Score                  0
+ Overall Grade                T
+ Grade cap reasons            Grade capped to T. Issues with the chain of trust (self signed)
+                              Grade capped to T. Certificate expired
+                              Grade capped to M. Domain name mismatch
+                              Grade capped to F. Vulnerable to DROWN
+                              Grade capped to F. Vulnerable to CCS injection
+                              Grade capped to F. Using cipher suites weaker than 112 bits
+                              Grade capped to F. Supports a insecure signature (MD5)
+                              Grade capped to F. SSLv2 is offered
+                              Grade capped to C. Vulnerable to POODLE
+                              Grade capped to C. TLS 1.2 is not offered
+                              Grade capped to B. Vulnerable to BEAST
+                              Grade capped to B. TLS 1.0 offered
+                              Grade capped to B. SSLv3 is offered
+                              Grade capped to B. Forward Secrecy (FS) is not supported
+                              Grade capped to A. HSTS is not offered
+                              Grade capped to A. Does not support TLS_FALLBACK_SCSV
+ Grade warning                Secure renegotiation is not supported
+
+ Done 2022-06-26 11:57:41 [ 144s] -->> 10.0.0.5:443 (10.0.0.5) <<--
