@@ -35,7 +35,7 @@ How to disassembly routers case: <https://www.ifixit.com/Guide/How+To+Repair+An+
 
 ![Disassembled D-Link DIR-655](images/router_2.jpg)
 
-* Unfortunately there is no laber for UART pins. 
+* Unfortunately there is no label for UART pins. 
 * **I just guess**: The group of 10 pins in lower left corner is JTAG interface. I dont have logic analysator to verify.
 
 ## Port scanning
