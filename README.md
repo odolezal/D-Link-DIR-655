@@ -15,6 +15,8 @@
   * [Exploitation](#exploitation)
     + [TFTP directory traversaln](#tftp-directory-traversal)
     + [CVE-2015-3036](#cve-2015-3036)
+    + [Vulnerable SSL versions](#vulnerable-ssl-versions)
+    + [Leaked SSL private key](#leaked-ssl-private-key)
     
 ## Basic info
 * Vendor product page: <https://eu.dlink.com/uk/en/products/dir-655-wireless-n-gigabit-router>
@@ -527,6 +529,115 @@ After execution router is rebooted is and come back after approx 20 secs. ICMP p
 64 bytes from 10.0.0.5: icmp_seq=34 ttl=64 time=0.685 ms
 64 bytes from 10.0.0.5: icmp_seq=35 ttl=64 time=2.49 ms
 ```
+
+### Vulnerable SSL versions
+
+Enumeration of SSL/TLS ciphers with `nmap -sV --script ssl-enum-ciphers -p 443`:
+
+```
+PORT    STATE SERVICE    VERSION
+443/tcp open  ssl/https?
+| ssl-enum-ciphers: 
+|   SSLv3: 
+|     ciphers: 
+|       TLS_RSA_WITH_3DES_EDE_CBC_SHA - F
+|       TLS_RSA_WITH_AES_128_CBC_SHA - F
+|       TLS_RSA_WITH_AES_256_CBC_SHA - F
+|       TLS_RSA_WITH_DES_CBC_SHA - F
+|     compressors: 
+|       NULL
+|     cipher preference: client
+|     warnings: 
+|       64-bit block cipher 3DES vulnerable to SWEET32 attack
+|       64-bit block cipher DES vulnerable to SWEET32 attack
+|       CBC-mode cipher in SSLv3 (CVE-2014-3566)
+|       Forward Secrecy not supported by any cipher
+|       Insecure certificate signature: MD5
+|   TLSv1.0: 
+|     ciphers: 
+|       TLS_RSA_WITH_3DES_EDE_CBC_SHA - F
+|       TLS_RSA_WITH_AES_128_CBC_SHA - F
+|       TLS_RSA_WITH_AES_256_CBC_SHA - F
+|       TLS_RSA_WITH_DES_CBC_SHA - F
+|     compressors: 
+|       NULL
+|     cipher preference: client
+|     warnings: 
+|       64-bit block cipher 3DES vulnerable to SWEET32 attack
+|       64-bit block cipher DES vulnerable to SWEET32 attack
+|       Forward Secrecy not supported by any cipher
+|       Insecure certificate signature: MD5
+|_  least strength: F
+```
+
+HTTPS version of web management supports unsafe and deprecated SSL/TLS versions: `SSLv2`, `SSLv3` and `TLS 1`. It comes with lot of dangerous vulnerabilities. 
+
+* *Examples of TLS Vulnerabilities and Attacks: <https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/>*
+
+There is selection from [testssl.sh](testssl.log) test:
+```
+CCS (CVE-2014-0224)                       VULNERABLE (NOT ok)
+
+Secure Renegotiation (RFC 5746)           Not supported / VULNERABLE (NOT ok)
+ 
+Secure Client-Initiated Renegotiation     VULNERABLE (NOT ok), DoS threat (6 attempts)
+ 
+BREACH (CVE-2013-3587)                    no gzip/deflate/compress/br HTTP compression (OK)  - only supplied "/" tested
+ 
+POODLE, SSL (CVE-2014-3566)               VULNERABLE (NOT ok), uses SSLv3+CBC (check TLS_FALLBACK_SCSV mitigation below)
+ 
+TLS_FALLBACK_SCSV (RFC 7507)              Downgrade attack prevention NOT supported and vulnerable to POODLE SSL
+ 
+SWEET32 (CVE-2016-2183, CVE-2016-6329)    VULNERABLE, uses 64 bit block ciphers for SSLv2 and above
+ 
+DROWN (CVE-2016-0800, CVE-2016-0703)      VULNERABLE (NOT ok), SSLv2 offered with 2 ciphers
+                                           Make sure you don't use this certificate elsewhere, see:
+                                           https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=B1CC105448E4E015CFD1A0CAF1C1436773C7996AD8E6C8B3993A8AFCAF25D4C0
+BEAST (CVE-2011-3389)                     SSL3: AES256-SHA AES128-SHA DES-CBC3-SHA DES-CBC-SHA 
+                                           TLS1: AES256-SHA AES128-SHA DES-CBC3-SHA DES-CBC-SHA 
+                                           VULNERABLE -- and no higher protocols as mitigation supported
+LUCKY13 (CVE-2013-0169), experimental     potentially VULNERABLE, uses cipher block chaining (CBC) ciphers with TLS. Check patches
+
+```
+
+Full log from `testssl.sh` script: [testssl.log](testssl.log) 
+
+### Leaked SSL private key
+
+From [TCP enumeration scan](#tcp-enumeration-scan):
+```
+nmap scan:
+443/tcp   open     ssl/https?
+| ssl-cert: Subject: commonName=www.dlink.com/organizationName=D-Link Corporation/stateOrProvinceName=Taiwan/countryName=TW
+| Issuer: commonName=www.dlink.com/organizationName=D-Link Corporation/stateOrProvinceName=Taiwan/countryName=TW
+| Public Key type: rsa
+| Public Key bits: 1024
+| Signature Algorithm: md5WithRSAEncryption
+| Not valid before: 2009-04-28T06:22:38
+| Not valid after:  2019-04-26T06:22:38
+| MD5:   6898 aa99 3218 14d7 63f1 587d a15f 3b26
+|_SHA-1: ce25 3a40 6071 50ba 8616 d456 b6c8 eabf c1d1 9490
+|_ssl-known-key: Found in Little Black Box 0.1 - http://code.google.com/p/littleblackbox/ (SHA-1: ce25 3a40 6071 50ba 8616 d456 b6c8 eabf c1d1 9490)
+```
+
+As we can see, SSL key was found in database of leaked private keys called LittleBlackbox. You can obtail full DB here: <https://github.com/devttys0/littleblackbox>.
+
+Some usefull info:
+* <https://nmap.org/nsedoc/scripts/ssl-known-key.html>
+* <https://charlesreid1.com/wiki/Littleblackbox#Exploring_the_database>
+
+Details for SSL key of D-Link DIR-655:
+
+* id: `5038`
+* fingerprint: `CE:25:3A:40:60:71:50:BA:86:16:D4:56:B6:C8:EA:BF:C1:D1:94:90`
+* extracted certificate: [ssl.crt](ssl.crt) 
+* **extracted private key:** [**ssl.key**](ssl.key) 
+
+With knowlege of private key we can decrypt capture HTTPS traffic designated for for router itself (e.g. web management pages, passwords). We can use for example Wireshark (<https://unit42.paloaltonetworks.com/wireshark-tutorial-decrypting-https-traffic/>):
+
+Picture below shows decrypted HTTPS traffic for `set_device.asp` page mentioned earlier.
+
+![Wireshark wish decrypted traffic](images/wireshark_tls.png)
 
 ## Bootlog
 
