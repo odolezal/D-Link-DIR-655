@@ -4,7 +4,7 @@
 
 ## Content
 
-  * [Basic info](#casic-info)
+  * [Basic info](#basic-info)
   * [Disassembly](#disassembly)
   * [Port scanning](#port-scanning)
     + [TCP enumeration scan](#tcp-enumeration-scan)
@@ -14,7 +14,7 @@
   * [Web management](#web-management)
   * [Exploitation](#exploitation)
     + [TFTP directory traversaln](#tftp-directory-traversal)
-    + [CVE-2015-3036 - NetUSB Remote Code Execution](#cve-2015-3036-netusb-remote-code-execution)
+    + [CVE-2015-3036](#cve-2015-3036)
     
 ## Basic info
 * Vendor product page: <https://eu.dlink.com/uk/en/products/dir-655-wireless-n-gigabit-router>
@@ -692,7 +692,9 @@ getting from 10.0.0.5:../../../../../../../bin/netcat to netcat [netascii]
 Error code 2: B:No such file or directornamic
 ```
 
-### CVE-2015-3036 - NetUSB Remote Code Execution
+### CVE-2015-3036
+
+**NetUSB Remote Code Execution**
 
 * Description: <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3036>
 > Stack-based buffer overflow in the run_init_sbus function in the KCodes NetUSB module for the Linux kernel, as used in certain NETGEAR products, TP-LINK products, and other products, allows remote attackers to execute arbitrary code by providing a long computer name in a session on TCP port 20005. 
