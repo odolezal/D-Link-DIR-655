@@ -358,7 +358,7 @@ Nothing valuable was discovered.
 
 Screenshot from *Status* page after authetication:
 
-![Web GUI of D-Link DIR-655](images/webgui.png)
+![Web GUI of D-Link DIR-655](images/web_gui.png)
 
 
 Unauthenticated request: `curl -i http://10.0.0.5/st_device.asp`
