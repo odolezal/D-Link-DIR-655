@@ -27,8 +27,8 @@
 * Hardware Version: B1
 * System details:
 ```
-Linux version 2.6.28.10 (test@yufa.core8) (gcc version 4.4.1 20100320 (stable) (GCC) )
-BusyBox v1.14.1 (2010-08-12 10:39:13 CST)* 
+Linux version 2.6.28.10 (vicchang@vicchang-desktop) (gcc version 4.4.1 20100320 (stable) (GCC) ) #8 Fri Jul 19 12:16:19 CST 2013
+BusyBox v1.14.1 (2013-07-19 10:57:56 CST)
 ```
 
 ## Disassembly
@@ -644,136 +644,171 @@ Picture below shows decrypted HTTPS traffic for `set_device.asp` page of web man
 Full boot log was obtained from web administration after log in:
 
 ```
-May 30 16:59:11    debug    Entering released state
-May 30 16:59:11    debug    Performing a DHCPC release
-May 30 16:59:11    debug    DHCPC Received SIGUSR2='DHCPC Release
-May 30 16:59:06    debug    [   18.870000] br0: no IPv6 routers present
-May 30 16:59:05    debug    [   18.310000] eth0.2: no IPv6 routers present
-May 30 16:59:05    debug    [   18.210000] eth0.1: no IPv6 routers present
-May 30 16:59:05    info    [   17.600000] usbcore: registered new interface driver USB General Driver
-May 30 16:59:04    notice    HTTP listening on port 65535
-May 30 16:59:02    debug    gpio create pidfile /var/run/gpio_wlan.pid
-May 30 16:59:01    debug    [   14.210000] eth0: no IPv6 routers present
-May 30 16:59:01    info    DHCP client start.
-May 30 16:59:01    info    [Initialized, firmware version: 2.00 ] 
-May 30 16:59:00    info    [    9.400000] br0: port 1(eth0.2) entering forwarding state
-May 30 16:59:00    info    [    9.400000] br0: topology change detected, propagating
-May 30 16:59:00    info    [    8.400000] br0: port 1(eth0.2) entering learning state
-May 30 16:59:00    info    [    8.370000] device eth0.2 entered promiscuous mode
-May 30 16:59:00    info    [    7.710000] device eth0 entered promiscuous mode
-May 30 16:59:00    info    [    4.090000] eth0: register VLAN for HW acceleration
-May 30 16:59:00    info    [    4.080000] eth open eth0
-May 30 16:59:00    notice    [    3.820000] Freeing unused kernel memory: 5116k freed (0x403ae000 - 0x408ac000)
-May 30 16:59:00    info    [    3.810000] All bugs added by David S. Miller 'davem@redhat.com'
-May 30 16:59:00    info    [    3.810000] 802.1Q VLAN Support v1.8 Ben Greear 'greearb@candelatech.com'
-May 30 16:59:00    info    [    3.810000] NET: Registered protocol family 17
-May 30 16:59:00    info    [    3.810000] IPv6 over IPv4 tunneling driver
-May 30 16:59:00    info    [    3.810000] ip6_tables: (C) 2000-2006 Netfilter Core Team
-May 30 16:59:00    info    [    3.810000] NET: Registered protocol family 10
-May 30 16:59:00    info    [    3.810000] TCP cubic registered
-May 30 16:59:00    info    [    3.810000] ip_tables: (C) 2000-2006 Netfilter Core Team
-May 30 16:59:00    info    [    3.810000] IPv4 over IPv4 tunneling driver
-May 30 16:59:00    info    [    3.780000] usbcore: registered new interface driver libusual
-May 30 16:59:00    info    [    3.780000] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
-May 30 16:59:00    info    [    3.780000] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
-May 30 16:59:00    notice    [    3.770000] 6 cmdlinepart partitions found on MTD device ubicom32_boot_flash
-May 30 16:59:00    info    [    3.770000] ubicom32flashdriver ubicom32flashdriver: mx25l64 (8192 Kbytes)
-May 30 16:59:00    info    [    3.770000] eth_wan does not exist
-May 30 16:59:00    info    [    3.770000] eth0 vp_base:0x3fffbb6c, tio_int:11 irq:23 feature:0x180
-May 30 16:59:00    info    [    3.770000] usbcore: registered new interface driver rndis_host
-May 30 16:59:00    info    [    3.770000] usbcore: registered new interface driver cdc_ether
-May 30 16:59:00    info    [    3.770000] usbcore: registered new interface driver asix
-May 30 16:59:00    info    [    3.770000] NET: Registered protocol family 24
-May 30 16:59:00    info    [    3.770000] PPP MPPE Compression module registered
-May 30 16:59:00    info    [    3.770000] PPP BSD Compression module registered
-May 30 16:59:00    info    [    3.770000] PPP Deflate Compression module registered
-May 30 16:59:00    info    [    3.770000] PPP generic driver version 2.4.2
-May 30 16:59:00    info    [    3.770000] brd: module loaded
-May 30 16:59:00    info    [    3.650000] ttyUM0 at MMIO 0x1000300 (irq = 62) is a UBI32_MAILBOX
-May 30 16:59:00    info    [    3.650000] Serial: Ubicom32 mailbox serial driver.
-May 30 16:59:00    info    [    3.650000] ubicom32 rng init
-May 30 16:59:00    info    [    3.650000] ubicom32 rng started
-May 30 16:59:00    info    [    3.650000] N_HDLC line discipline registered.
-May 30 16:59:00    info    [    3.650000] HDLC line discipline: version $Revision: 4.8 $, maxframe=4096
-May 30 16:59:00    info    [    3.430000] io scheduler noop registered (default)
-May 30 16:59:00    info    [    3.430000] alg: No test for stdrng (krng)
-May 30 16:59:00    info    [    3.430000] msgmni has been set to 108
-May 30 16:59:00    info    [    3.430000] JFFS2 version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
-May 30 16:59:00    info    [    3.430000] Registering unionfs 2.5.1 (for 2.6.28.1)
-May 30 16:59:00    info    [    3.430000] ar8316 (ID=0x004dd041) switch chip initialized
-May 30 16:59:00    info    [    3.430000] Registered switch device: ar8316-smi
-May 30 16:59:00    info    [    3.260000] input: Ubicom32 Input as /class/input/input0
-May 30 16:59:00    info    [    3.260000] ipProfile (profiling) is not enabled in Ultra.  Profiler /proc interface is disabled.
-May 30 16:59:00    info    [    0.380000] NET: Registered protocol family 1
-May 30 16:59:00    info    [    0.380000] /proc/ttl_ipmr created
-May 30 16:59:00    info    [    0.350000] TCP reno registered
-May 30 16:59:00    info    [    0.350000] TCP: Hash tables configured (established 2048 bind 2048)
-May 30 16:59:00    info    [    0.350000] TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
-May 30 16:59:00    info    [    0.350000] TCP established hash table entries: 2048 (order: 2, 16384 bytes)
-May 30 16:59:00    info    [    0.350000] /proc/ttl_ipv4 created
-May 30 16:59:00    info    [    0.350000] IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
-May 30 16:59:00    debug    [    0.270000] Switched to high resolution mode on CPU 0
-May 30 16:59:00    notice    [    0.270000] timer[34]: oneshot
-May 30 16:59:00    info    [    0.260000] NET: Registered protocol family 2
-May 30 16:59:00    info    [    0.220000] hub 1-0:1.0: 1 port detected
-May 30 16:59:00    info    [    0.220000] hub 1-0:1.0: USB hub found
-May 30 16:59:00    info    [    0.220000] usb usb1: configuration #1 chosen from 1 choice
-May 30 16:59:00    info    [    0.220000] musb_hdrc musb_hdrc.0: new USB bus registered, assigned bus number 1
-May 30 16:59:00    info    [    0.220000] musb_hdrc musb_hdrc.0: MUSB HDRC host driver
-May 30 16:59:00    info    [    0.220000] musb_hdrc: USB Host mode controller at 02009800 using PIO, IRQ 13
-May 30 16:59:00    debug    [    0.220000] musb_hdrc: hw_ep 5shared, max 64
-May 30 16:59:00    debug    [    0.220000] musb_hdrc: hw_ep 4shared, max 512
-May 30 16:59:00    debug    [    0.220000] musb_hdrc: hw_ep 3shared, max 512
-May 30 16:59:00    debug    [    0.220000] musb_hdrc: hw_ep 2shared, max 1024
-May 30 16:59:00    debug    [    0.220000] musb_hdrc: hw_ep 1shared, max 16
-May 30 16:59:00    debug    [    0.220000] musb_hdrc: hw_ep 0shared, max 64
-May 30 16:59:00    debug    [    0.220000] musb_hdrc: MHDRC RTL version 2.0 
-May 30 16:59:00    debug    [    0.220000] musb_hdrc: ConfigData=0x22 (UTMI-8, SoftConn)
-May 30 16:59:00    info    [    0.220000] musb_hdrc: version 6.0, pio, host, debug=0
-May 30 16:59:00    info    [    0.220000] usbcore: registered new device driver usb
-May 30 16:59:00    info    [    0.220000] usbcore: registered new interface driver hub
-May 30 16:59:00    info    [    0.220000] usbcore: registered new interface driver usbfs
-May 30 16:59:00    notice    [    0.220000] SCSI subsystem initialized
-May 30 16:59:00    info    [    0.220000] PCI: bus0: Fast back to back transfers enabled
-May 30 16:59:00    info    [    0.220000] pci 0000:00:00.0: PME# disabled
-May 30 16:59:00    info    [    0.220000] pci 0000:00:00.0: PME# supported from D0 D3hot
-May 30 16:59:00    debug    [    0.220000] pci 0000:00:00.0: reg 10 32bit mmio: [0x000000-0x00ffff]
-May 30 16:59:00    info    [    0.220000] ubicom32_flash_init(): registering device resources
-May 30 16:59:00    info    [    0.220000] ip7160rgw_init: registering SPI resources
-May 30 16:59:00    info    [    0.220000] ip7160rgw_init: registering device resources
-May 30 16:59:00    info    [    0.220000] Ubicom GPIO Controller
-May 30 16:59:00    info    [    0.220000] NET: Registered protocol family 16
-May 30 16:59:00    info    [    0.220000] net_namespace: 696 bytes
-May 30 16:59:00    info    [    0.220000] OCM Instruction Heap 57 KB
-May 30 16:59:00    info    [    0.020000] Calibrating delay loop... 199.47 BogoMIPS (lpj=997376)
-May 30 16:59:00    info    [    0.020000] Memory available: 55460k/64752k RAM, (2275k kernel code, 5636k data)
-May 30 16:59:00    info    [    0.020000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
-May 30 16:59:00    info    [    0.010000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
-May 30 16:59:00    info    [    0.000000] console [ttyUM0] enabled
-May 30 16:59:00    notice    [    0.000000] timer[34]: periodic: 5000000 cycles
-May 30 16:59:00    notice    [    0.000000] timer[34]: shutdown
-May 30 16:59:00    notice    [    0.000000] timer[34]: timer-primary - created
-May 30 16:59:00    notice    [    0.000000] Kernel command line: console=ttyUM0 console=ttyUS0 serdes=0x02004000,61,250000000 mtdparts=ubicom32_boot_flash:128k(bootloader),7360k(upgrade),384k(jffs2),64k(fw_env),192k(language_pack),64k(artblock)
-May 30 16:59:00    debug    [    0.000000]   Movable zone: 0 pages used for memmap
-May 30 16:59:00    debug    [    0.000000]   Normal zone: 16319 pages, LIFO batch:3
-May 30 16:59:00    debug    [    0.000000]   Normal zone: 129 pages used for memmap
-May 30 16:59:00    debug    [    0.000000]   DMA zone: 59 pages, LIFO batch:0
-May 30 16:59:00    debug    [    0.000000]   DMA zone: 0 pages reserved
-May 30 16:59:00    debug    [    0.000000]   DMA zone: 1 pages used for memmap
-May 30 16:59:00    debug    [    0.000000] free_area_init_node: node 0, pgdat 403a9cd4, node_mem_map 4090e800
-May 30 16:59:00    debug    [    0.000000] On node 0 totalpages: 16508
-May 30 16:59:00    info    [    0.000000]   3fffbbcc: sendirq=021, recvirq=013,  name=usbtio
-May 30 16:59:00    info    [    0.000000]   3fffbc44: sendirq=255, recvirq=001,  name=traps
-May 30 16:59:00    info    [    0.000000]   3fffbaac: sendirq=255, recvirq=255,  name=processor
-May 30 16:59:00    info    [    0.000000]   3fffbb18: sendirq=010, recvirq=022,  name=pci
-May 30 16:59:00    info    [    0.000000]   3fffbb6c: sendirq=011, recvirq=023,  name=eth_lan
-May 30 16:59:00    info    [    0.000000]   3fffbc8c: sendirq=255, recvirq=255,  name=bootargs
-May 30 16:59:00    info    [    0.000000]   3fffbed0: sendirq=255, recvirq=255,  name=board
-May 30 16:59:00    info    [    0.000000] Device Tree:
-May 30 16:59:00    info    [    0.000000] IP7K Processor, Ubicom, Inc. 'www.ubicom.com'
-May 30 16:59:00    info    [    0.000000] updating range registers for expanded dram
-May 30 16:59:00    info    [    0.000000] processor ocm 3ffc1f00-3fff4d00, expecting 3ffc1f00-3fff4d00
-May 30 16:59:00    notice    [    0.000000] Linux version 2.6.28.10 (test@yufa.core8) (gcc version 4.4.1 20100320 (stable) (GCC) ) #10 Thu Aug 12 20:00:06 CST 2010
-May 30 16:59:00    notice    klogd started: BusyBox v1.14.1 (2010-08-12 10:39:13 CST)
-May 30 16:59:00    info    BusyBox v1.14.1
+Jun  5 20:57:07    info    [   81.530000] m_table count=11 Add 3333ffbe a29f000a port=-1 0
+Jun  5 20:57:07    info    [   81.460000] m_table count=10 Add 33330000 0016000a port=-1 0
+Jun  5 20:57:07    info    [   81.460000] m_table count= 9 Add 3333ff5b dbc6000a port=-1 0
+Jun  5 20:56:10    info    [   24.060000] m_table count= 8 Add 33330000 0002000a port=-1 0
+Jun  5 20:56:09    info    version 1.8.3 started
+Jun  5 20:56:09    debug    Entering released state
+Jun  5 20:56:09    debug    Performing a DHCPC release
+Jun  5 20:56:09    debug    DHCPC Received SIGUSR2='DHCPC Release
+Jun  5 20:56:09    info    [   23.440000] m_table count= 7 Add 33330001 0003000a port=-1 0
+Jun  5 20:56:08    info    [   23.030000] m_table count= 6 Add 3333ff00 0000000a port=-1 0
+Jun  5 20:56:08    info    [   22.970000] m_table count= 5 Add 33330000 000c000a port=-1 0
+Jun  5 20:56:08    notice    HTTP listening on port 65530
+Jun  5 20:56:07    notice    [   21.850000] --- End Trap --- 
+Jun  5 20:56:07    notice    [   21.850000]   CALL && CALLI on stack:
+Jun  5 20:56:07    notice    [   21.850000]   User Stack (fdpic):
+Jun  5 20:56:07    notice    [   21.850000] Starting backtrace: PID 300 'miniupnpd'
+Jun  5 20:56:07    notice    [   21.850000] 
+Jun  5 20:56:07    notice    [   21.850000] frame_type: 2, nesting_level: 0, thread_type 0
+Jun  5 20:56:07    notice    [   21.850000] DRange3: en:00000000, range: 40005120-400ffffc
+Jun  5 20:56:07    notice    [   21.850000] DRange2: en:00000fff, range: 403b8000-43fffffc
+Jun  5 20:56:07    notice    [   21.850000] DRange1: en:00000fff, range: 3ffc0000-43fffffc
+Jun  5 20:56:07    notice    [   21.850000] DRange0: en:00000fff, range: 00000800-02009ffc
+Jun  5 20:56:07    notice    [   21.850000] IRange2: en:00000fff, range: 403ba000-43fffffc
+Jun  5 20:56:07    notice    [   21.850000] IRange1: en:00000fff, range: 40100000-401005b4
+Jun  5 20:56:07    notice    [   21.850000] IRange0: en:00000fff, range: 3ffc0000-43fffffc
+Jun  5 20:56:07    notice    [   21.850000] int_mask0: 00000000, int_mask1: 00000000
+Jun  5 20:56:07    notice    [   21.850000] inst_cnt: cfc65cc1, csr: 00000000
+Jun  5 20:56:07    notice    [   21.850000] mac_rc16: 00000000, source3: 27a7d87f
+Jun  5 20:56:07    notice    [   21.850000] acc0: 00000000-00000000, acc1: 80000000-00000000
+Jun  5 20:56:07    notice    [   21.850000] Address registers
+Jun  5 20:56:07    notice    [   21.850000] 
+Jun  5 20:56:07    notice    [   21.850000] pc: 42902d74, previous_pc: 42902d70
+Jun  5 20:56:07    notice    [   21.850000] regs: 42869f50, tid: 5
+Jun  5 20:56:07    notice    [   21.850000]   decode: 00000800 src1 range error
+Jun  5 20:56:07    notice    [   21.850000]   decode: 00000020 src1 alignment error
+Jun  5 20:56:07    notice    [   21.850000] 
+Jun  5 20:56:07    notice    [   21.850000] bss = 0x428b8460-0x42860000   user-stack = 0x42867e40
+Jun  5 20:56:07    notice    [   21.850000] text = 0x42900000-0x42918254  data = 0x428b0254-0x428b8460
+Jun  5 20:56:07    notice    HTTP listening on port 50693
+Jun  5 20:56:07    info    [   21.590000] m_table count= 4 Add 3333ff27 94a6000a port=-1 0
+Jun  5 20:56:07    info    [   21.440000] m_table count= 3 Add 01005e7f fffa000a port=1 0
+Jun  5 20:56:05    info    [   19.170000] usbcore: registered new interface driver KC NetUSB General Driver
+Jun  5 20:56:05    info    [   19.040000] m_table count= 2 Add 33330000 00fb000a port=-1 0
+Jun  5 20:56:05    info    [   19.040000] m_table count= 1 Add 01005e00 00fb000a port=-1 0
+Jun  5 20:56:04    info    [   18.550000] flags=1
+Jun  5 20:56:04    info    [   18.550000] ioctl eth0, 35312
+Jun  5 20:56:03    debug    gpio create pidfile /var/run/gpio_wlan.pid
+Jun  5 20:56:03    info    [   17.130000] ADDRCONF(NETDEV_CHANGE): lo: link becomes ready
+Jun  5 20:56:02    info    DHCP client start.
+Jun  5 20:56:01    info    [Initialized, firmware version: 2.09 ] 
+Jun  5 20:56:00    info    [    9.840000] br0: port 1(eth0.2) entering learning state
+Jun  5 20:56:00    info    [    9.800000] device eth0.2 entered promiscuous mode
+Jun  5 20:56:00    info    [    9.080000] device eth0 entered promiscuous mode
+Jun  5 20:56:00    info    [    4.250000] eth0: register VLAN for HW acceleration
+Jun  5 20:56:00    info    [    4.240000] eth open eth0
+Jun  5 20:56:00    notice    [    3.980000] Freeing unused kernel memory: 5372k freed (0x403ba000 - 0x408f8000)
+Jun  5 20:56:00    info    [    3.970000] All bugs added by David S. Miller 'davem@redhat.com'
+Jun  5 20:56:00    info    [    3.970000] 802.1Q VLAN Support v1.8 Ben Greear 'greearb@candelatech.com'
+Jun  5 20:56:00    info    [    3.970000] NET: Registered protocol family 17
+Jun  5 20:56:00    info    [    3.970000] IPv6 over IPv4 tunneling driver
+Jun  5 20:56:00    info    [    3.970000] ip6_tables: (C) 2000-2006 Netfilter Core Team
+Jun  5 20:56:00    info    [    3.970000] NET: Registered protocol family 10
+Jun  5 20:56:00    info    [    3.970000] TCP cubic registered
+Jun  5 20:56:00    info    [    3.970000] ip_tables: (C) 2000-2006 Netfilter Core Team
+Jun  5 20:56:00    info    [    3.970000] IPv4 over IPv4 tunneling driver
+Jun  5 20:56:00    info    [    3.940000] usbcore: registered new interface driver libusual
+Jun  5 20:56:00    info    [    3.940000] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+Jun  5 20:56:00    info    [    3.940000] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+Jun  5 20:56:00    notice    [    3.930000] 6 cmdlinepart partitions found on MTD device ubicom32_boot_flash
+Jun  5 20:56:00    info    [    3.930000] ubicom32flashdriver ubicom32flashdriver: mx25l64 (8192 Kbytes)
+Jun  5 20:56:00    info    [    3.930000] eth_wan does not exist
+Jun  5 20:56:00    info    [    3.930000] eth0 vp_base:0x3fffbb6c, tio_int:11 irq:23 feature:0x180
+Jun  5 20:56:00    info    [    3.930000] usbcore: registered new interface driver rndis_host
+Jun  5 20:56:00    info    [    3.930000] usbcore: registered new interface driver cdc_ether
+Jun  5 20:56:00    info    [    3.930000] usbcore: registered new interface driver asix
+Jun  5 20:56:00    info    [    3.930000] NET: Registered protocol family 24
+Jun  5 20:56:00    info    [    3.930000] PPP MPPE Compression module registered
+Jun  5 20:56:00    info    [    3.930000] PPP BSD Compression module registered
+Jun  5 20:56:00    info    [    3.930000] PPP Deflate Compression module registered
+Jun  5 20:56:00    info    [    3.930000] PPP generic driver version 2.4.2
+Jun  5 20:56:00    info    [    3.930000] brd: module loaded
+Jun  5 20:56:00    info    [    3.810000] ttyUM0 at MMIO 0x1000300 (irq = 62) is a UBI32_MAILBOX
+Jun  5 20:56:00    info    [    3.810000] Serial: Ubicom32 mailbox serial driver.
+Jun  5 20:56:00    info    [    3.810000] ubicom32 rng init
+Jun  5 20:56:00    info    [    3.810000] ubicom32 rng started
+Jun  5 20:56:00    info    [    3.810000] N_HDLC line discipline registered.
+Jun  5 20:56:00    info    [    3.810000] HDLC line discipline: version $Revision: 4.8 $, maxframe=4096
+Jun  5 20:56:00    info    [    3.590000] io scheduler noop registered (default)
+Jun  5 20:56:00    info    [    3.590000] alg: No test for stdrng (krng)
+Jun  5 20:56:00    info    [    3.590000] msgmni has been set to 107
+Jun  5 20:56:00    info    [    3.590000] JFFS2 version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+Jun  5 20:56:00    info    [    3.590000] Registering unionfs 2.5.1 (for 2.6.28.1)
+Jun  5 20:56:00    info    [    3.590000] ar8316 (ID=0x004dd041) switch chip initialized
+Jun  5 20:56:00    info    [    3.590000] Registered switch device: ar8316-smi
+Jun  5 20:56:00    info    [    3.420000] input: Ubicom32 Input as /class/input/input0
+Jun  5 20:56:00    info    [    3.420000] ipProfile (profiling) is not enabled in Ultra.  Profiler /proc interface is disabled.
+Jun  5 20:56:00    info    [    0.380000] NET: Registered protocol family 1
+Jun  5 20:56:00    info    [    0.380000] /proc/ttl_ipmr created
+Jun  5 20:56:00    info    [    0.350000] TCP reno registered
+Jun  5 20:56:00    info    [    0.350000] TCP: Hash tables configured (established 2048 bind 2048)
+Jun  5 20:56:00    info    [    0.350000] TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+Jun  5 20:56:00    info    [    0.350000] TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+Jun  5 20:56:00    info    [    0.350000] /proc/ttl_ipv4 created
+Jun  5 20:56:00    info    [    0.350000] IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+Jun  5 20:56:00    debug    [    0.270000] Switched to high resolution mode on CPU 0
+Jun  5 20:56:00    notice    [    0.270000] timer[34]: oneshot
+Jun  5 20:56:00    info    [    0.260000] NET: Registered protocol family 2
+Jun  5 20:56:00    info    [    0.220000] hub 1-0:1.0: 1 port detected
+Jun  5 20:56:00    info    [    0.220000] hub 1-0:1.0: USB hub found
+Jun  5 20:56:00    info    [    0.220000] usb usb1: configuration #1 chosen from 1 choice
+Jun  5 20:56:00    info    [    0.220000] musb_hdrc musb_hdrc.0: new USB bus registered, assigned bus number 1
+Jun  5 20:56:00    info    [    0.220000] musb_hdrc musb_hdrc.0: MUSB HDRC host driver
+Jun  5 20:56:00    info    [    0.220000] musb_hdrc: USB Host mode controller at 02009800 using PIO, IRQ 13
+Jun  5 20:56:00    debug    [    0.220000] musb_hdrc: hw_ep 5shared, max 64
+Jun  5 20:56:00    debug    [    0.220000] musb_hdrc: hw_ep 4shared, max 512
+Jun  5 20:56:00    debug    [    0.220000] musb_hdrc: hw_ep 3shared, max 512
+Jun  5 20:56:00    debug    [    0.220000] musb_hdrc: hw_ep 2shared, max 1024
+Jun  5 20:56:00    debug    [    0.220000] musb_hdrc: hw_ep 1shared, max 16
+Jun  5 20:56:00    debug    [    0.220000] musb_hdrc: hw_ep 0shared, max 64
+Jun  5 20:56:00    debug    [    0.220000] musb_hdrc: MHDRC RTL version 2.0 
+Jun  5 20:56:00    debug    [    0.220000] musb_hdrc: ConfigData=0x22 (UTMI-8, SoftConn)
+Jun  5 20:56:00    info    [    0.220000] musb_hdrc: version 6.0, pio, host, debug=0
+Jun  5 20:56:00    info    [    0.220000] usbcore: registered new device driver usb
+Jun  5 20:56:00    info    [    0.220000] usbcore: registered new interface driver hub
+Jun  5 20:56:00    info    [    0.220000] usbcore: registered new interface driver usbfs
+Jun  5 20:56:00    notice    [    0.220000] SCSI subsystem initialized
+Jun  5 20:56:00    info    [    0.220000] PCI: bus0: Fast back to back transfers enabled
+Jun  5 20:56:00    info    [    0.220000] pci 0000:00:00.0: PME# disabled
+Jun  5 20:56:00    info    [    0.220000] pci 0000:00:00.0: PME# supported from D0 D3hot
+Jun  5 20:56:00    debug    [    0.220000] pci 0000:00:00.0: reg 10 32bit mmio: [0x000000-0x00ffff]
+Jun  5 20:56:00    info    [    0.220000] ubicom32_flash_init(): registering device resources
+Jun  5 20:56:00    info    [    0.220000] ip7160rgw_init: registering SPI resources
+Jun  5 20:56:00    info    [    0.220000] ip7160rgw_init: registering device resources
+Jun  5 20:56:00    info    [    0.220000] Ubicom GPIO Controller
+Jun  5 20:56:00    info    [    0.220000] NET: Registered protocol family 16
+Jun  5 20:56:00    info    [    0.220000] net_namespace: 708 bytes
+Jun  5 20:56:00    info    [    0.220000] OCM Instruction Heap 57 KB
+Jun  5 20:56:00    info    [    0.020000] Calibrating delay loop... 199.47 BogoMIPS (lpj=997376)
+Jun  5 20:56:00    info    [    0.020000] Memory available: 55148k/64752k RAM, (2319k kernel code, 5902k data)
+Jun  5 20:56:00    info    [    0.020000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+Jun  5 20:56:00    info    [    0.010000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+Jun  5 20:56:00    info    [    0.000000] console [ttyUM0] enabled
+Jun  5 20:56:00    notice    [    0.000000] timer[34]: periodic: 5000000 cycles
+Jun  5 20:56:00    notice    [    0.000000] timer[34]: shutdown
+Jun  5 20:56:00    notice    [    0.000000] timer[34]: timer-primary - created
+Jun  5 20:56:00    notice    [    0.000000] Kernel command line: console=ttyUM0 console=ttyUS0 serdes=0x02004000,61,250000000 mtdparts=ubicom32_boot_flash:128k(bootloader),7360k(upgrade),384k(jffs2),64k(fw_env),192k(language_pack),64k(artblock)
+Jun  5 20:56:00    debug    [    0.000000]   Movable zone: 0 pages used for memmap
+Jun  5 20:56:00    debug    [    0.000000]   Normal zone: 16319 pages, LIFO batch:3
+Jun  5 20:56:00    debug    [    0.000000]   Normal zone: 129 pages used for memmap
+Jun  5 20:56:00    debug    [    0.000000]   DMA zone: 59 pages, LIFO batch:0
+Jun  5 20:56:00    debug    [    0.000000]   DMA zone: 0 pages reserved
+Jun  5 20:56:00    debug    [    0.000000]   DMA zone: 1 pages used for memmap
+Jun  5 20:56:00    debug    [    0.000000] free_area_init_node: node 0, pgdat 403b5e58, node_mem_map 4095b800
+Jun  5 20:56:00    debug    [    0.000000] On node 0 totalpages: 16508
+Jun  5 20:56:00    info    [    0.000000]   3fffbbcc: sendirq=021, recvirq=013,  name=usbtio
+Jun  5 20:56:00    info    [    0.000000]   3fffbc44: sendirq=255, recvirq=001,  name=traps
+Jun  5 20:56:00    info    [    0.000000]   3fffbaac: sendirq=255, recvirq=255,  name=processor
+Jun  5 20:56:00    info    [    0.000000]   3fffbb18: sendirq=010, recvirq=022,  name=pci
+Jun  5 20:56:00    info    [    0.000000]   3fffbb6c: sendirq=011, recvirq=023,  name=eth_lan
+Jun  5 20:56:00    info    [    0.000000]   3fffbc8c: sendirq=255, recvirq=255,  name=bootargs
+Jun  5 20:56:00    info    [    0.000000]   3fffbed0: sendirq=255, recvirq=255,  name=board
+Jun  5 20:56:00    info    [    0.000000] Device Tree:
+Jun  5 20:56:00    info    [    0.000000] IP7K Processor, Ubicom, Inc. 'www.ubicom.com'
+Jun  5 20:56:00    info    [    0.000000] updating range registers for expanded dram
+Jun  5 20:56:00    info    [    0.000000] processor ocm 3ffc1f00-3fff4d00, expecting 3ffc1f00-3fff4d00
+Jun  5 20:56:00    notice    [    0.000000] Linux version 2.6.28.10 (vicchang@vicchang-desktop) (gcc version 4.4.1 20100320 (stable) (GCC) ) #8 Fri Jul 19 12:16:19 CST 2013
+Jun  5 20:56:00    notice    klogd started: BusyBox v1.14.1 (2013-07-19 10:57:56 CST)
 ```
