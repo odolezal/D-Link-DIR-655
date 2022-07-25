@@ -13,7 +13,7 @@
     + [UDP vulnerability scan](#udp-vulnerability-scan)
   * [Web management](#web-management)
   * [Exploitation](#exploitation)
-    + [TFTP directory traversaln](#tftp-directory-traversal)
+    + [TFTP directory traversal](#tftp-directory-traversal)
     + [CVE-2015-3036](#cve-2015-3036)
     + [Vulnerable SSL versions](#vulnerable-ssl-versions)
     + [Leaked SSL private key](#leaked-ssl-private-key)
